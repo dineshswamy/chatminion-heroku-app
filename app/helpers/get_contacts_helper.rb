@@ -1,0 +1,2 @@
+module GetContactsHelper
+end
