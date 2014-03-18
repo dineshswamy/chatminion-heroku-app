@@ -1,0 +1,7 @@
+{"status":"<%= @status %>",
+"new_relater":<% if !@new_relater.nil? then %>
+<%= @new_relater.to_json.html_safe %>
+<% else %>
+"<%= " "  %>"
+<% end %>
+}

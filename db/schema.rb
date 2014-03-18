@@ -11,18 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219150000) do
+ActiveRecord::Schema.define(version: 20140306144628) do
+
+  create_table "message_options", force: true do |t|
+    t.integer  "message_id"
+    t.text     "options_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "messages", force: true do |t|
     t.text     "user_message"
     t.text     "transform_pattern"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tag"
   end
 
   create_table "usercontacts", force: true do |t|
     t.string   "user_id"
-    t.string   "relator_id"
+    t.string   "relater_id"
     t.string   "rel_status"
     t.datetime "created_at"
     t.datetime "updated_at"

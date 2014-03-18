@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Message id</th>
       <th>User message</th>
       <th>Transform pattern</th>
       <th></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
+        <td><%= message.id %></td>
         <td><%= message.user_message %></td>
         <td><%= message.transform_pattern %></td>
         <td><%= link_to 'Show', message %></td>

@@ -1,0 +1,29 @@
+<h1>Listing message_options</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>Options</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @message_options.each do |message_option| %>
+      <tr>
+        <td><%= message_option.message_id %></td>
+        <td><%= message_option.options_id %></td>
+        <td><%= link_to 'Show', message_option %></td>
+        <td><%= link_to 'Edit', edit_message_option_path(message_option) %></td>
+        <td><%= link_to 'Destroy', message_option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Message option', new_message_option_path %>

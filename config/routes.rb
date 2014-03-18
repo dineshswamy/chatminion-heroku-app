@@ -1,4 +1,6 @@
 Calltheteam::Application.routes.draw do
+  resources :message_options
+
   resources :messages
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -12,11 +14,13 @@ Calltheteam::Application.routes.draw do
 
   match 'calltheteam/register' => 'login#register' , :via=>:post
 
-  match 'calltheteam/addcontact' => 'addfriend#addRelationship',:via=>:post
+  match 'calltheteam/addcontact' => 'relater#addRelater',:via=>:post
 
   match 'calltheteam/sendmessage' => 'message#sendMessage',:via=>:post  
 
   match 'user/:id/contacts' => 'get_contacts#get_contacts' , :via=>:get
+
+
   
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
