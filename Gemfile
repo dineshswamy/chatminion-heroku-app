@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'httparty'
 
+gem 'gcm_for_chrome'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
