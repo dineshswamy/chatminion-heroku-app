@@ -6,6 +6,8 @@ class MessageController < ApplicationController
 	before_filter :protect_from_forgery,:except => [:sendMessage]
 
 	def sendMessage()
+    puts "params"
+    puts params.inspect
 		if(!params[:message_id].nil? && !params[:sender_id].nil? && !params[:channel_id].nil?)
         send_notification(params[:message_id],params[:channel_id],params[:sender_id])
 		end
@@ -24,7 +26,9 @@ class MessageController < ApplicationController
          :subchannelId => '0',
          :payload => {
          :message_id => message_id ,
-         :user_id => sender_id
+         :user_id => sender_id,
+         :is_custom_message => params[:is_custom_message],
+         :custom_message => params[:custom_message]
           }.to_json.html_safe
               }.to_json,
              :headers => { 'Content-Type' => 'application/json' , 'Authorization' => "Bearer #{@access_token}" })
