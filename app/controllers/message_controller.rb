@@ -45,25 +45,8 @@ class MessageController < ApplicationController
   end
 
  def getAccessToken()
-      @access_token = Rails.cache.fetch("access_token")
-      puts "Access token #{@access_token}"
-      if @access_token.nil? 
-        @url_to_post="https://accounts.google.com/o/oauth2/token"
-        @result = HTTParty.post(@url_to_post.to_str, 
-                      :body => { :client_id => '445760815141-5bjr9ht6kcdb67sh3hlrfmo82ien95ke.apps.googleusercontent.com', 
-         :client_secret => 'OuCDAM442cY0TzMZ_J7ta4T-', 
-         :refresh_token => '1/rlGkEuQO45hUm9EsPDOHrWc_DJCFmQGHAgbRW0pCyh4',
-         :grant_type => 'refresh_token'
-                              },
-                              :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
-        puts "Response #{@result}"
-        puts "Access token received"
-        @json_response=JSON.parse(@result.body)
-        @access_token=@json_response["access_token"]
-        token_expires_in=@json_response["expires_in"]
-        token_expires_in = token_expires_in.to_i.seconds
-        Rails.cache.write("access_token",@access_token,expires_in:token_expires_in)
-      end  
+ ## Get your google access token	
+ end  
 
  
 end
